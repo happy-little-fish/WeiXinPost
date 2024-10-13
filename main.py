@@ -77,6 +77,7 @@ def get_Today_Class():
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     todayClasses = get_Week_Classes(today.weekday())
+    print（）
     return todayClasses
 
 
