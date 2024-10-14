@@ -70,22 +70,20 @@ def get_Week_Classes(w):
     return week_Class
     
 # 获取本周课程
-def get_Week_Classes(w):
-    print(f"Entering {get_Week_Classes.__name__} at line {inspect.currentframe().f_lineno}")  # 调试输出函数名和行号
+def get_Week_Classes(w=None):
+    print(f"Entering {get_Week_Classes.__name__} at line {inspect.currentframe().f_lineno}")
     if w is not None:
-        week_Class = config['classes'].get(w)
-        print(f"Week class for {w}: {week_Class}")  # 输出当前的课程
+        week_Class = config.get('classes', {}).get(w)
+        print(f"Week class for {w}: {week_Class}")
     else:
         week = get_Today_Week()
-        week_Class = config['classes'].get(week)
-        print(f"Week class for today ({week}): {week_Class}")  # 输出当前的课程
+        week_Class = config.get('classes', {}).get(week)
+        print(f"Week class for today ({week}): {week_Class}")
     
-    # 检查课程是否存在，如果不存在，返回空列表
     if week_Class is None:
-        week_Class = []  # 或者可以选择返回一个默认课程，例如 ['No classes']
-        print(f"No classes found for week {w}. Returning empty list.")  # 输出没有找到课程的信息
+        week_Class = []  # 返回空列表，表示没有找到课程
+        print(f"No classes found for week {w}. Returning empty list.")
     return week_Class
-
 
 
 # 获取今日课程
