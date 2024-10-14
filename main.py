@@ -60,16 +60,6 @@ def get_Today_Week():
     trueWeek = (d_days.days // 7) + 1
     return str(trueWeek)
 
-
-# 获取本周课程
-def get_Week_Classes(w):
-    if w is not None:
-        week_Class = config.classes.get(w)
-    else:
-        week = get_Today_Week()
-        week_Class = config.classes.get(week)
-    return week_Class
-    
 # 获取本周课程
 def get_Week_Classes(w=None):
     print(f"Entering {get_Week_Classes.__name__} at line {inspect.currentframe().f_lineno}")
@@ -97,10 +87,6 @@ def get_Today_Class():
     return todayClasses
 
 
-# 获取指定星期几的课程
-def get_Class(day):
-    theClasses = get_Week_Classes(None)[day]
-    return theClasses
 
 # 获取指定星期几的课程
 def get_Class(day):
