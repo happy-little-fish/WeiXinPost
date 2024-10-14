@@ -1,5 +1,5 @@
-import cityinfo
 import inspect
+import cityinfo
 import config
 import time
 from time import localtime
